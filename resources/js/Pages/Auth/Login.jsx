@@ -65,7 +65,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="block mt-4">
+                <div className="flex items-center justify-between mt-4">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -78,9 +78,7 @@ export default function Login({ status, canResetPassword }) {
                             Remember me
                         </span>
                     </label>
-                </div>
 
-                <div className="flex items-center justify-end mt-4">
                     {canResetPassword && (
                         <Link
                             href={route("password.request")}
@@ -89,19 +87,18 @@ export default function Login({ status, canResetPassword }) {
                             Forgot your password?
                         </Link>
                     )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
                 </div>
-
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href={route("register")}
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Don't have an account? Register
+                        Don't have an account?
                     </Link>
+
+                    <PrimaryButton className="ms-4" disabled={processing}>
+                        Log in
+                    </PrimaryButton>
                 </div>
             </form>
         </GuestLayout>
