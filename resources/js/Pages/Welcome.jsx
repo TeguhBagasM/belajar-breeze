@@ -76,9 +76,3 @@ export default function Welcome({ auth }) {
         </>
     );
 }
-
-// Tailwind CSS classes for buttons
-const btnPrimary =
-    "inline-block px-6 py-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-md text-lg";
-const btnSecondary =
-    "inline-block px-6 py-3 text-indigo-600 bg-white hover:bg-gray-100 rounded-md text-lg";

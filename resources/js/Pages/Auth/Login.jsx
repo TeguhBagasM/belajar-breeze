@@ -5,6 +5,7 @@ import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
+import { FaTasks } from "react-icons/fa";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -25,13 +26,20 @@ export default function Login({ status, canResetPassword }) {
         <GuestLayout>
             <Head title="Log in" />
 
+            <div className="flex flex-col items-center">
+                <FaTasks className="text-5xl text-indigo-600" />
+                <h1 className="text-3xl font-bold text-indigo-600">
+                    TaskMaster
+                </h1>
+            </div>
+
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">
                     {status}
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className="space-y-6 mt-6">
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
@@ -40,7 +48,7 @@ export default function Login({ status, canResetPassword }) {
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                         autoComplete="username"
                         isFocused={true}
                         onChange={(e) => setData("email", e.target.value)}
@@ -49,7 +57,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="password" value="Password" />
 
                     <TextInput
@@ -57,7 +65,7 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                         autoComplete="current-password"
                         onChange={(e) => setData("password", e.target.value)}
                     />
@@ -65,7 +73,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="flex items-center justify-between mt-4">
+                <div className="flex items-center justify-between">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -88,7 +96,8 @@ export default function Login({ status, canResetPassword }) {
                         </Link>
                     )}
                 </div>
-                <div className="flex items-center justify-end mt-4">
+
+                <div className="flex items-center justify-end">
                     <Link
                         href={route("register")}
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
