@@ -27,7 +27,6 @@ export default function Login({ status, canResetPassword }) {
             <Head title="Log in" />
 
             <div className="flex flex-col items-center">
-                <FaTasks className="text-5xl text-indigo-600" />
                 <h1 className="text-3xl font-bold text-indigo-600">
                     TaskMaster
                 </h1>
